@@ -18,6 +18,14 @@ template FourBitBinary() {
     signal input in[4];
     signal input n;
 
+    assert(n < 15);
+    // verify that each is either 0 or 1
+    in[0] * (in[0] - 1) === 0;
+    in[1] * (in[1] - 1) === 0;
+    in[2] * (in[2] - 1) === 0;
+    in[3] * (in[3] - 1) === 0;
+
+    in[0] * 8 + in[1] * 4 + in[2] * 2 + in[3] * 1 === n;
 }
 
 component main{public [n]} = FourBitBinary();
