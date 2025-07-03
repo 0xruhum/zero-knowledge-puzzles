@@ -7,7 +7,18 @@ pragma circom 2.1.4;
 template ForLoop() {
 
 // Your Code here..
+    signal input a[2];
+    signal output c;
 
+    var temp;
+
+    for (var i = 0; i < 4; i++) {
+        temp += a[0] + a[1];
+    }
+
+    c <== temp;
+    // can also just do: 
+    // c <== (a[0] + a[1]) * 4;
 }  
 
 component main = ForLoop();
